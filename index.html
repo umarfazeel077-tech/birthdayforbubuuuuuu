@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday Princess 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ font-family:Poppins,sans-serif;
+ background:#160b19;color:white;
+ overflow-x:hidden;
+}
+.script{font-family:'Great Vibes',cursive;color:#ffc4df}
+#intro{
+ position:fixed;inset:0;z-index:1000;
+ display:flex;align-items:center;justify-content:center;
+ flex-direction:column;text-align:center;
+ background:radial-gradient(circle,#682c50,#160b19 75%);
+ transition:1s;
+}
+#intro.hide{opacity:0;visibility:hidden;transform:scale(1.1)}
+.intro-heart{font-size:85px;animation:pulse 1s infinite}
+#intro h1{font-size:clamp(45px,8vw,75px);margin:15px}
+button{
+ border:1px solid #ff9cc9;padding:14px 30px;
+ border-radius:50px;
+ background:linear-gradient(120deg,#ff5d9f,#d43e83);
+ color:white;font-size:14px;cursor:pointer;
+ box-shadow:0 0 30px #ff5d9f55;
+ transition:.3s;
+}
+button:hover{transform:scale(1.08)}
+.hero{
+ min-height:100vh;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;text-align:center;
+ padding:80px 15px;
+ background:radial-gradient(ellipse at center,#682c50,#160b19 75%);
+}
+.hero h1{font-size:clamp(65px,12vw,110px);animation:glow 2s infinite alternate}
+.hero h2{font-size:clamp(40px,7vw,65px)}
+.hero p{color:#f2b9d2;line-height:2}
+.eyebrow{letter-spacing:4px;font-size:11px;color:#ffb6d5}
+.anime{
+ width:min(400px,90vw);margin:25px auto;
+ animation:float 4s ease-in-out infinite;
+ filter:drop-shadow(0 10px 30px #ff77b655);
+}
+@keyframes float{50%{transform:translateY(-15px)}}
+@keyframes glow{to{text-shadow:0 0 35px #ff70ac,0 0 60px #ff4f9c}}
+@keyframes pulse{50%{transform:scale(1.2)}}
+.section{
+ padding:90px 20px;text-align:center;
+ background:linear-gradient(180deg,#160b19,#291326,#160b19);
+}
+.section-title{font-size:clamp(40px,7vw,60px);margin-bottom:15px}
+.section-sub{color:#d7a7bd;margin-bottom:35px;font-size:13px}
+.glass{
+ max-width:680px;width:100%;margin:auto;padding:35px 25px;
+ background:#ffffff0b;border:1px solid #ffb8d52a;
+ border-radius:30px;backdrop-filter:blur(15px);
+ box-shadow:0 15px 50px #0004;
+ transition:.4s;
+}
+.glass:hover{transform:translateY(-6px);box-shadow:0 20px 60px #ff70ac33}
+.glass p{line-height:2;color:#f5d5e4;font-size:14px}
+.cake{font-size:90px;animation:pulse 1.5s infinite}
+.envelope{
+ width:220px;height:140px;margin:30px auto;
+ background:#f78bb7;position:relative;border-radius:8px;
+ cursor:pointer;
+}
+.envelope:before{
+ content:"";position:absolute;top:0;left:0;
+ border-left:110px solid transparent;
+ border-right:110px solid transparent;
+ border-top:85px solid #ffbad5;
+}
+.envelope:after{
+ content:"♥";position:absolute;left:50%;top:50%;
+ transform:translate(-50%,-50%);
+ font-size:40px;color:#a62c66;
+}
+.letter{
+ display:none;margin:20px auto;padding:25px;
+ max-width:520px;background:#fff0f6;
+ color:#87365e;border-radius:20px;
+ animation:fade .8s;
+}
+.letter p{color:#87365e}
+.surprise{display:none;margin-top:25px;animation:fade 1s}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+footer{text-align:center;padding:40px;color:#d69bb9;font-size:12px}
+
+/* HEART RAIN */
+.heart{
+ position:fixed;top:-60px;z-index:999;
+ pointer-events:none;
+ filter:drop-shadow(0 0 9px #ff4f9c);
+ will-change:transform,opacity;
+}
+
+/* Background glowing hearts */
+.bg-heart{
+ position:fixed;z-index:0;pointer-events:none;
+ animation:rise linear infinite;
+ opacity:.5;
+}
+@keyframes rise{
+ from{transform:translateY(110vh) rotate(0deg);opacity:0}
+ 20%{opacity:.6}
+ to{transform:translateY(-15vh) rotate(360deg);opacity:0}
+}
+
+/* Sakura */
+.petal{
+ position:fixed;top:-40px;z-index:8;
+ pointer-events:none;
+ animation:petalFall linear forwards;
+}
+@keyframes petalFall{
+ to{transform:translateY(110vh) rotate(700deg);opacity:0}
+}
+
+/* Sparkle */
+.sparkle{
+ position:fixed;z-index:1000;pointer-events:none;
+ color:#ffd1e7;animation:sparkle 1s forwards;
+}
+@keyframes sparkle{
+ to{opacity:0;transform:scale(2) translateY(-30px)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+ <div class="intro-heart">💗</div>
+ <p class="eyebrow">A LITTLE SURPRISE FOR</p>
+ <h1 class="script">My Princess</h1>
+ <p style="margin-bottom:30px">Someone special is waiting for you...</p>
+ <button onclick="start()">OPEN YOUR GIFT ✨</button>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+ <p class="eyebrow">✦ TODAY IS ALL ABOUT YOU ✦</p>
+ <h1 class="script">Happy Birthday</h1>
+ <h2 class="script">Theekshana 💗</h2>
+ <p>To the most beautiful girl in my universe.</p>
+
+ <!-- Anime couple illustration -->
+ <svg class="anime" viewBox="0 0 430 360">
+ <defs>
+  <linearGradient id="hair1" x2="1" y2="1">
+   <stop stop-color="#241321"/><stop offset="1" stop-color="#87426a"/>
+  </linearGradient>
+  <linearGradient id="hair2" x2="1" y2="1">
+   <stop stop-color="#38152d"/><stop offset="1" stop-color="#a64e78"/>
+  </linearGradient>
+  <linearGradient id="dress" x2="0" y2="1">
+   <stop stop-color="#ffacd0"/><stop offset="1" stop-color="#d84188"/>
+  </linearGradient>
+ </defs>
+ <circle cx="215" cy="175" r="155" fill="#ffb6d5" opacity=".08"/>
+ <g fill="#fff0f7">
+  <path d="M45 80l5 15 15 5-15 5-5 15-5-15-15-5 15-5z"/>
+  <path d="M365 85l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/>
+  <circle cx="75" cy="235" r="4"/>
+  <circle cx="345" cy="260" r="4"/>
+ </g>
+ <path d="M65 360Q75 250 160 250L205 360" fill="#52627f"/>
+ <path d="M240 360Q245 260 320 250Q390 270 405 360" fill="url(#dress)"/>
+ <path d="M86 175Q70 60 160 65Q235 50 235 160L211 240L110 230Z" fill="url(#hair1)"/>
+ <ellipse cx="158" cy="165" rx="62" ry="75" fill="#f4c29f"/>
+ <path d="M96 144Q80 65 160 80Q220 68 222 145Q195 117 176 130Q140 105 96 144" fill="#291525"/>
+ <path d="M112 167Q124 157 137 167M162 165Q175 157 186 165" stroke="#442436" stroke-width="4" fill="none"/>
+ <path d="M208 165Q192 65 292 65Q385 55 367 185L378 310Q340 337 339 215L248 224Z" fill="url(#hair2)"/>
+ <ellipse cx="289" cy="173" rx="58" ry="72" fill="#ffd2b8"/>
+ <path d="M231 152Q220 76 295 84Q357 73 350 147Q323 118 300 135Q264 110 231 152" fill="#56213f"/>
+ <path d="M244 170Q258 182 270 170M302 170Q315 182 328 170" stroke="#563146" stroke-width="4" fill="none"/>
+ <ellipse cx="244" cy="192" rx="14" ry="7" fill="#f58a9e" opacity=".6"/>
+ <ellipse cx="327" cy="192" rx="14" ry="7" fill="#f58a9e" opacity=".6"/>
+ <path d="M206 187Q217 183 229 189" stroke="#b66d6a" stroke-width="4" fill="none"/>
+ <path d="M170 255Q210 220 250 248" stroke="#f4c29f" stroke-width="20" stroke-linecap="round" fill="none"/>
+ <path d="M338 99Q375 57 380 103Q377 127 348 119Z" fill="#ff78af"/>
+ <path d="M350 108Q393 76 393 116Q390 135 354 120Z" fill="#ffacd0"/>
+ <path d="M215 65C195 43 177 70 215 94C253 70 235 43 215 65Z" fill="#ff4f9c"/>
+ </svg>
+
+ <p class="script" style="font-size:38px">You are my favourite person ♡</p>
+ <br>
+ <button onclick="goTo('birthday')">EXPLORE YOUR DAY ↓</button>
+</header>
+
+<!-- BIRTHDAY -->
+<section class="section" id="birthday">
+ <p class="eyebrow">✦ A DAY FULL OF MAGIC ✦</p>
+ <h2 class="section-title script">It's Your Special Day!</h2>
+ <p class="section-sub">One more year of being wonderfully you.</p>
+ <div class="glass">
+  <div class="cake">🎂</div>
+  <h2 class="script" style="font-size:45px;color:#ff9dc9">Make a Wish!</h2>
+  <p>Close your eyes, make a beautiful wish and imagine all your dreams coming true. 💗</p>
+  <br>
+  <button onclick="blow()">✨ MAKE A WISH ✨</button>
+  <p id="wishText" style="margin-top:20px"></p>
+ </div>
+</section>
+
+<!-- LETTER -->
+<section class="section">
+ <p class="eyebrow">✦ SOMETHING FROM MY HEART ✦</p>
+ <h2 class="section-title script">A Letter For You</h2>
+ <p class="section-sub">There are some words I want you to read...</p>
+ <div class="glass">
+  <div style="font-size:65px">💌</div>
+  <h2 class="script" style="font-size:40px">Dear Princess</h2>
+  <p>Tap the envelope to open your special letter.</p>
+  <div class="envelope" onclick="openLetter()"></div>
+  <div class="letter" id="letter">
+   <h2 class="script" style="font-size:40px">My Beautiful Princess ❤️</h2>
+   <br>
+   <p>
+    Happy Birthday, Theekshana!<br><br>
+    I hope your special day is filled with endless happiness,
+    beautiful smiles and unforgettable memories.<br><br>
+    You deserve the sweetest things life has to offer.
+    Never forget how special and amazing you are.<br><br>
+    May every little dream in your heart become reality.
+    Keep shining like the brightest star. ✨<br><br>
+    <b>Sending you the biggest hug and a sweet kiss! 💋</b>
+   </p>
+   <br>
+   <h2 class="script">With Love ♡</h2>
+  </div>
+ </div>
+</section>
+
+<!-- FINAL SURPRISE -->
+<section class="section">
+ <p class="eyebrow">✦ THE FINAL SURPRISE ✦</p>
+ <h2 class="section-title script">One Last Thing...</h2>
+ <p class="section-sub">A little surprise made especially for you.</p>
+ <div class="glass">
+  <div style="font-size:85px">🎁</div>
+  <p>Ready to reveal your final birthday surprise?</p>
+  <br>
+  <button onclick="reveal()">OPEN YOUR SURPRISE 💗</button>
+  <div class="surprise" id="final">
+   <div style="font-size:75px">💖</div>
+   <h2 class="script" style="font-size:65px">I Love You!</h2>
+   <p>Happy Birthday My Princess!</p>
+   <p>Today, tomorrow and always, keep smiling. ♾️</p>
+   <div style="font-size:40px">💋 🌹 💗</div>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <p class="script" style="font-size:35px">Made with Love ❤️</p>
+ <p>Especially for Theekshana · My Princess</p>
+ <p>Forever & Always ♾️</p>
+</footer>
+
+<script>
+
+// START
+function start(){
+ document.getElementById('intro').classList.add('hide');
+ setTimeout(()=>document.getElementById('intro').remove(),1100);
+ hearts(120);
+}
+
+// SCROLL
+function goTo(id){
+ document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+// ULTRA HEART RAIN
+function hearts(count=150){
+ const symbols=['❤️','💗','💖','💕','💘','💝','💞','💓','♥️','💟'];
+
+ for(let i=0;i<count;i++){
+  const heart=document.createElement('div');
+  heart.className='heart';
+  heart.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.fontSize=(18+Math.random()*35)+'px';
+
+  document.body.appendChild(heart);
+
+  const duration=3500+Math.random()*4000;
+  const drift=(Math.random()-.5)*250;
+  const rotation=Math.random()*900;
+
+  const animation=heart.animate([
+   {transform:'translate(0,0) rotate(0) scale(.5)',opacity:0},
+   {transform:'translate(20px,30vh) rotate(180deg) scale(1.2)',opacity:1,offset:.25},
+   {transform:`translate(${drift}px,110vh) rotate(${rotation}deg) scale(.8)`,opacity:0}
+  ],{
+   duration:duration,
+   easing:'ease-in',
+   fill:'forwards'
+  });
+
+  animation.onfinish=()=>heart.remove();
+ }
+}
+
+// CONTINUOUS HEART RAIN
+setInterval(()=>hearts(5),1200);
+
+// WISH
+function blow(){
+ document.getElementById('wishText').innerHTML=
+ 'Your wish is on its way to the universe! 🌟💗';
+ hearts(120);
+}
+
+// LETTER
+function openLetter(){
+ document.getElementById('letter').style.display='block';
+ hearts(60);
+}
+
+// FINAL SURPRISE
+function reveal(){
+ document.getElementById('final').style.display='block';
+
+ for(let i=0;i<12;i++){
+  setTimeout(()=>hearts(30),i*250);
+ }
+}
+
+// SAKURA RAIN
+setInterval(()=>{
+ const p=document.createElement('div');
+ p.className='petal';
+ p.textContent=['🌸','🌷','💗'][Math.floor(Math.random()*3)];
+ p.style.left=Math.random()*100+'vw';
+ p.style.fontSize=(15+Math.random()*20)+'px';
+ p.style.animationDuration=(5+Math.random()*6)+'s';
+ document.body.appendChild(p);
+ setTimeout(()=>p.remove(),12000);
+},800);
+
+// FLOATING BACKGROUND HEARTS
+for(let i=0;i<20;i++){
+ const h=document.createElement('div');
+ h.className='bg-heart';
+ h.textContent='💗';
+ h.style.left=Math.random()*100+'vw';
+ h.style.fontSize=(15+Math.random()*25)+'px';
+ h.style.animationDuration=(8+Math.random()*12)+'s';
+ h.style.animationDelay=Math.random()*10+'s';
+ document.body.appendChild(h);
+}
+
+// MOUSE SPARKLES
+if(window.matchMedia('(pointer:fine)').matches){
+ document.addEventListener('mousemove',e=>{
+  if(Math.random()>.75){
+   const s=document.createElement('span');
+   s.className='sparkle';
+   s.textContent='✦';
+   s.style.left=e.clientX+'px';
+   s.style.top=e.clientY+'px';
+   document.body.appendChild(s);
+   setTimeout(()=>s.remove(),1000);
+  }
+ });
+}
+</script>
+</body>
+</html>
